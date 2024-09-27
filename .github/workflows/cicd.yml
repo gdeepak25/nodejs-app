@@ -3,7 +3,7 @@ name: CICD
 on:
   push:
     branches:
-      - elastic-beanstalk-ec2
+      - ebs
 
 jobs:
   build-and-deploy:
@@ -24,8 +24,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: 'nodejs-app'
-          environment_name: 'nodejs-app-env'
-          version_label: ${{ github.sha }}
+          application_name: 'ebs-app'
+          environment_name: 'ebs-app-env'
+          version_label: '1.0.3'
           region: us-east-1
           deployment_package: nodejs-app-build.zip
